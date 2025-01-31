@@ -65,7 +65,7 @@
         function playVideo() {
             const artist = document.getElementById('artist').value;
             const difficulty = document.getElementById('difficulty').value;
-            const videoSource = `https://raw.githubusercontent.com/[user]/[video_repo]/main/media/${artist}_${difficulty}.mp4`;
+            const videoSource = `https://raw.githubusercontent.com/nemesisratus/videos/main/${artist}/${artist}_${difficulty}.mp4`;
             
             const player = document.getElementById('videoPlayer');
             document.getElementById('videoSource').src = videoSource;
