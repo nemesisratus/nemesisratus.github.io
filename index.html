@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ff4444;
+            background-color: #222;
+            color: white;
+        }
+        button {
+            background-color: #ff4444;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        video {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <select id="artist">
+            <option value="artist1">Artist 1</option>
+            <option value="artist2">Artist 2</option>
+        </select>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <button onclick="playVideo()">Play</button>
+    </div>
+    <video id="videoPlayer" controls>
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        function playVideo() {
+            const artist = document.getElementById('artist').value;
+            const difficulty = document.getElementById('difficulty').value;
+            const videoSource = `https://raw.githubusercontent.com/[user]/[video_repo]/main/media/${artist}_${difficulty}.mp4`;
+            
+            const player = document.getElementById('videoPlayer');
+            document.getElementById('videoSource').src = videoSource;
+            player.load();
+            player.play();
+        }
+    </script>
+</body>
+</html>
